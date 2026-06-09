@@ -127,24 +127,24 @@ export default function ManageAdmins() {
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
+    <div className="admin-card space-y-6">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-2xl font-semibold">Manage Admins</h1>
         <button
           onClick={fetchAdmins}
           disabled={adminsLoading}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200 disabled:bg-gray-400"
+          className="admin-button-primary"
         >
           {adminsLoading ? 'Loading...' : 'Refresh Admins'}
         </button>
       </div>
 
-      <div className="space-y-3 max-h-[30rem] overflow-y-auto">
+      <div className="admin-list">
         {admins.length === 0 ? (
-          <p className="text-gray-500 text-center py-4">No admin users found</p>
+          <p className="admin-empty-state">No admin users found</p>
         ) : (
           admins.map((admin) => (
-            <div key={admin.uid} className="border border-gray-200 rounded-lg p-3">
+            <div key={admin.uid} className="admin-list-item">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   {admin.profilePic ? (
@@ -181,7 +181,7 @@ export default function ManageAdmins() {
                   </div>
                   <button
                     onClick={() => handleRemoveAdmin(admin.uid, admin.displayName || admin.name || admin.username || admin.identifier || admin.email || 'Unknown User')}
-                    className="bg-red-500 text-white text-sm px-4 py-2 rounded hover:bg-red-600 transition duration-200 min-w-[120px]"
+                    className="admin-button-danger-sm min-w-[120px]"
                     disabled={admin.uid === (user as any)?.uid}
                   >
                     {admin.uid === (user as any)?.uid ? 'Self' : 'Remove Admin'}
@@ -197,9 +197,9 @@ export default function ManageAdmins() {
         <h3 className="text-lg font-semibold text-gray-700 mb-3">Add New Admin</h3>
         <form onSubmit={setAdmin} className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="adminUid" className="block text-gray-700 font-semibold">User ID</label>
+            <label htmlFor="adminUid" className="admin-label">User ID</label>
             <input
-              className="border border-gray-300 rounded-lg p-2 w-full"
+              className="admin-control"
               type="text"
               id="adminUid"
               value={adminUid}
@@ -209,7 +209,7 @@ export default function ManageAdmins() {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-green-500 text-white rounded-lg py-2 hover:bg-green-600 transition duration-200">
+          <button type="submit" className="admin-button-success-full">
             Add Admin
           </button>
         </form>

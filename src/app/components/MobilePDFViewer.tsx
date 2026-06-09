@@ -34,21 +34,16 @@ function MobilePDFViewer({ images }: { images: string[] }) {
         }, [images]);
 
     return (
-        <div style={{ overflowY: 'auto', maxHeight: '80vh' }}>
+        <div className="mobile-pdf-scroll">
           {images.map((imgUrl, idx) => (
             <div
               key={idx}
-              className="demoPage"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
+              className="demoPage mobile-pdf-page"
             >
               <img
                 src={imgUrl}
                 alt={`Page ${idx + 1}`}
-                style={{ width: '80%', height: '100%', objectFit: 'contain', marginTop: '2rem' }}
+                className="mobile-pdf-image"
                 
               />
             </div>

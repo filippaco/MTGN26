@@ -133,61 +133,61 @@ export default function CreateEventForm({ onEventCreated }: CreateEventFormProps
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
+    <div className="admin-card space-y-6">
       <form onSubmit={handleCreateEvent} className="space-y-4">
-        <h1 className="mb-3 text-2xl font-semibold text-center">Create New Event</h1>
+        <h1 className="admin-title">Create New Event</h1>
         <div className="space-y-2">
-          <label htmlFor="eventName" className="block text-gray-700 font-semibold">Event Name</label>
+          <label htmlFor="eventName" className="admin-label">Event Name</label>
           <input
             type="text"
             id="eventName"
             value={eventName}
             onChange={(e) => setEventName(e.target.value)}
             placeholder="Enter event name"
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             autoComplete="off"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="eventDriveUrl" className="block text-gray-700 font-semibold">Google Drive Link</label>
+          <label htmlFor="eventDriveUrl" className="admin-label">Google Drive Link</label>
           <input
             type="url"
             id="eventDriveUrl"
             value={eventDriveUrl}
             onChange={(e) => setEventDriveUrl(e.target.value)}
             placeholder="https://drive.google.com/drive/folders/..."
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             autoComplete="off"
             required
           />
-          <p className="text-xs text-gray-500">
+          <p className="admin-help-text">
             Make sure the folder is set to "Anyone with the link can view"
           </p>
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="eventDate" className="block text-gray-700 font-semibold">Event Date</label>
+          <label htmlFor="eventDate" className="admin-label">Event Date</label>
           <input
             type="date"
             id="eventDate"
             value={eventDate}
             onChange={(e) => setEventDate(e.target.value)}
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <label className="block text-gray-700 font-semibold">Event Time</label>
+          <label className="admin-label">Event Time</label>
           <div className="grid grid-cols-2 gap-2">
             <div>
-              <label className="block text-xs text-gray-500 mb-1">Hour</label>
+              <label className="admin-help-text block mb-1">Hour</label>
               <select
                 value={eventHour}
                 onChange={(e) => setEventHour(e.target.value)}
-                className="border border-gray-300 rounded-lg p-2 w-full"
+                className="admin-control"
                 required
               >
                 <option value="">Hour</option>
@@ -199,11 +199,11 @@ export default function CreateEventForm({ onEventCreated }: CreateEventFormProps
               </select>
             </div>
             <div>
-              <label className="block text-xs text-gray-500 mb-1">Minute</label>
+              <label className="admin-help-text block mb-1">Minute</label>
               <select
                 value={eventMinute}
                 onChange={(e) => setEventMinute(e.target.value)}
-                className="border border-gray-300 rounded-lg p-2 w-full"
+                className="admin-control"
                 required
               >
                 <option value="">Minute</option>
@@ -218,20 +218,20 @@ export default function CreateEventForm({ onEventCreated }: CreateEventFormProps
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="eventThumbnail" className="block text-gray-700 font-semibold">Thumbnail Image</label>
+          <label htmlFor="eventThumbnail" className="admin-label">Thumbnail Image</label>
           <input
             type="file"
             id="eventThumbnail"
             onChange={handleEventThumbnailChange}
             accept="image/*"
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             required
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-green-500 text-white rounded-lg py-2 hover:bg-green-600 transition duration-200"
+          className="admin-button-success-full"
         >
           Create Event
         </button>

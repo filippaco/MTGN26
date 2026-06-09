@@ -34,13 +34,13 @@ export default function UpdateDisplayNameForm() {
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
+    <div className="admin-card space-y-6">
       <form onSubmit={handleSubmitName} className="space-y-4">
-        <h1 className="mb-3 text-2xl font-semibold text-center">Update User DisplayName</h1>
+        <h1 className="admin-title">Update User DisplayName</h1>
         <div className="space-y-2">
-          <label htmlFor="uid" className="block text-gray-700 font-semibold">User ID</label>
+          <label htmlFor="uid" className="admin-label">User ID</label>
           <input
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             type="text"
             id="uid"
             value={displayNameUid}
@@ -50,9 +50,9 @@ export default function UpdateDisplayNameForm() {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="displayName" className="block text-gray-700 font-semibold">Display Name</label>
+          <label htmlFor="displayName" className="admin-label">Display Name</label>
           <input
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             type="text"
             id="displayName"
             value={displayName}
@@ -61,7 +61,7 @@ export default function UpdateDisplayNameForm() {
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition duration-200">Update User</button>
+        <button type="submit" className="admin-button-primary-full">Update User</button>
       </form>
     </div>
   );

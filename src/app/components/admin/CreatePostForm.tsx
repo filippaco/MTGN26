@@ -35,13 +35,13 @@ export default function CreatePostForm() {
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
+    <div className="admin-card space-y-6">
       <form onSubmit={handleUploadPosts} className="space-y-4">
-        <h1 className="mb-3 text-2xl font-semibold text-center">Create Post</h1>
+        <h1 className="admin-title">Create Post</h1>
         <div className="space-y-2">
-          <label htmlFor="title" className="block text-gray-700 font-semibold">Title</label>
+          <label htmlFor="title" className="admin-label">Title</label>
           <input
-            className="border border-gray-300 rounded-lg p-2 w-full"
+            className="admin-control"
             type="text"
             id="title"
             value={title}
@@ -49,15 +49,15 @@ export default function CreatePostForm() {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="post" className="block text-gray-700 font-semibold">Post</label>
+          <label htmlFor="post" className="admin-label">Post</label>
           <textarea
-            className="border border-gray-300 rounded-lg p-2 text-black w-full h-64 resize-none"
+            className="admin-control h-64 resize-none text-black"
             id="post"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
-        <button type="submit" className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition duration-200">Create Post</button>
+        <button type="submit" className="admin-button-primary-full">Create Post</button>
         {error && <p className="text-red-500">{error}</p>}
         {success && <p className="text-green-500">{success}</p>}
       </form>

@@ -165,8 +165,7 @@ export default function ImageCropper({ imageUrl, onCrop, onCancel }: ImageCroppe
           >
             {/* Resize handle */}
             <div
-              className="absolute w-3 h-3 bg-blue-500 cursor-se-resize"
-              style={{ bottom: -6, right: -6 }}
+              className="crop-resize-handle"
               onMouseDown={(e) => handleCornerMouseDown(e, 'bottom-right')}
             />
           </div>
@@ -175,13 +174,13 @@ export default function ImageCropper({ imageUrl, onCrop, onCancel }: ImageCroppe
         <div className="flex justify-end space-x-3">
           <button
             onClick={onCancel}
-            className="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-50"
+            className="crop-button-cancel"
           >
             Cancel
           </button>
           <button
             onClick={handleCrop}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="crop-button-confirm"
           >
             Crop & Upload
           </button>

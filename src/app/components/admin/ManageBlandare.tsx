@@ -98,24 +98,24 @@ export default function ManageBlandare({ refreshTrigger }: ManageBlandareProps) 
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
+    <div className="admin-card space-y-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold">Manage Existing Bländare</h2>
         <button
           onClick={fetchBlandare}
           disabled={loadingBlandare}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200 disabled:bg-gray-400 text-sm"
+          className="admin-button-primary text-sm"
         >
           {loadingBlandare ? 'Loading...' : 'Refresh'}
         </button>
       </div>
 
-      <div className="space-y-3 max-h-[30rem] overflow-y-auto">
+      <div className="admin-list">
         {blandare.length === 0 ? (
-          <p className="text-gray-500 text-center py-4">No bländare found</p>
+          <p className="admin-empty-state">No bländare found</p>
         ) : (
           blandare.map((item, index) => (
-            <div key={item.name} className="border border-gray-200 rounded-lg p-3">
+            <div key={item.name} className="admin-list-item">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   {/* Preview thumbnail */}
@@ -144,7 +144,7 @@ export default function ManageBlandare({ refreshTrigger }: ManageBlandareProps) 
                 
                 <button
                   onClick={() => handleDeleteBlandare(item.name)}
-                  className="bg-red-500 text-white text-sm px-4 py-2 rounded hover:bg-red-600 transition duration-200"
+                  className="admin-button-danger-sm"
                 >
                   Delete
                 </button>

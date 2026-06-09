@@ -132,7 +132,7 @@ const Home = () => {
 
     return (
         <main className="flex min-h-screen flex-col items-center bg-gradient-stars p-10">
-            <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 space-y-6">
+            <div className="profile-card space-y-6">
                 {profilePic && (
                     <div className="flex justify-center mb-4">
                         <img src={profilePic} alt="Profile" className="w-36 h-36 rounded-full shadow-lg" />
@@ -142,10 +142,10 @@ const Home = () => {
                 <p className="text-center text-gray-600">{"Fun fact: "+funFact || "No fun fact available"}</p>
             </div>
 
-            <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 mt-6">
+            <div className="profile-card mt-6">
                 <form onSubmit={updateFunFact} className="space-y-4">
                     <input
-                        className="border border-gray-300 rounded-lg p-2 w-full"
+                        className="admin-control"
                         type="text"
                         value={inputFact}
                         onChange={(e) => setInputFact(e.target.value)}
@@ -154,24 +154,24 @@ const Home = () => {
                     />
                     <button 
                         type="submit"
-                        className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition duration-200"
+                        className="admin-button-primary-full"
                     >
                         Uppdatera fun fact
                     </button>
                 </form>
             </div>
 
-            <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 mt-6">
+            <div className="profile-card mt-6">
                 <form onSubmit={newPassword} className="space-y-4">
                     <input
-                        className="border border-gray-300 rounded-lg p-2 w-full"
+                        className="admin-control"
                         type="password"
                         onChange={(e) => setInputPassword(e.target.value)}
                         placeholder="Nytt lösenord"
                         required
                     />
                     <input
-                        className="border border-gray-300 rounded-lg p-2 w-full"
+                        className="admin-control"
                         type="password"
                         onChange={(e) => setInputPassword1(e.target.value)}
                         placeholder="Bekräfta nytt lösenord"
@@ -179,7 +179,7 @@ const Home = () => {
                     />
                     <button 
                         type="submit"
-                        className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition duration-200"
+                        className="admin-button-primary-full"
                     >
                         Byt lösenord
                     </button>
@@ -188,7 +188,7 @@ const Home = () => {
 
             {isAdmin && (
                 <div className="w-full max-w-md mt-6 flex justify-center">
-                    <Link href="/admin-panel" className="w-3/5 text-center bg-green-500 text-white rounded-lg py-2 block hover:bg-green-600 transition duration-200">
+                    <Link href="/admin-panel" className="profile-admin-link">
                         Öppna adminpanel
                     </Link>
                 </div>

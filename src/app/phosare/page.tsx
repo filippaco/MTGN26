@@ -1,4 +1,5 @@
 'use client'
+import type { CSSProperties } from 'react';
 import { FormEvent, useEffect, useState } from 'react';
 import useAuth from "../components/useAuth";
 import { doc, getDoc, setDoc, collection, getDocs, DocumentData } from 'firebase/firestore';
@@ -104,16 +105,16 @@ export default function PhosarGrupper() {
         const electusUsers = userData.filter(user => user.phosGroup == group && user.isElectus);
 
         // Specific styling for RSA, including the Stardos font
-        const containerClasses = group === "RSA" ? "grid grid-cols-1 gap-4 mb-3 sm:mx-20 2xl:mx-64 justify-center" : "grid grid-cols-2 gap-4 mb-3 sm:mx-20 2xl:mx-64 justify-center";
-        const electusClasses = group === "RSA" ? `bg-slate-50 p-2 rounded-lg hover:bg-slate-300 ${stardos.className}` : "bg-[#F7F7F3] p-2 rounded-lg drop-shadow shadow-pink-glow hover:bg-[#FDFDFD]";
-        const userClasses = group === "RSA" ? `bg-slate-50 p-2 rounded-lg drop-shadow hover:bg-slate-300 ${stardos.className}` : "bg-[#F7F7F3] p-2 rounded-lg drop-shadow shadow-pink-glow  hover:bg-[#FDFDFD]";
+        const containerClasses = group === "RSA" ? "phosare-electus-grid-rsa" : "phosare-electus-grid";
+        const electusClasses = group === "RSA" ? `phosare-rsa-electus-card ${stardos.className}` : "phosare-member-card";
+        const userClasses = group === "RSA" ? `phosare-rsa-member-card ${stardos.className}` : "phosare-member-card";
 
         return (
         <div key={group + "1"} className='flex items-center flex-col mx-7 sm:mx-16 md:mx-32 lg:mx-64 xl:mx-96'>
             <button
                 onClick={() => toggleGroupBool(index, group)}
-                className={`relative text-white font-bold  text-xl mt-4 rounded-lg w-full py-5 whitespace-nowrap drop-shadow shadow-pink-glow hover:bg-black ${group === "RSA" ? stardos.className : ''}`}
-                style={{ backgroundImage: `url('/phosargrupp-images/${group}.jpg')`, backgroundRepeat: 'repeat', backgroundSize: 'contain' }}
+                className={`phosare-group-trigger ${group === "RSA" ? stardos.className : ''}`}
+                style={{ "--group-cover-image": `url('/phosargrupp-images/${group}.jpg')` } as CSSProperties}
             >
                 <span className="block text-center w-full">{group}</span>
                 <span className="absolute right-2 -bottom-1.5">

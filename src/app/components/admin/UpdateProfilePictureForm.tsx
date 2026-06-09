@@ -64,35 +64,35 @@ export default function ProfilePictureUploader() {
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
-      <h1 className="mb-3 text-2xl font-semibold text-center">Update Profile Picture</h1>
+    <div className="admin-card space-y-6">
+      <h1 className="admin-title">Update Profile Picture</h1>
       
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="block text-gray-700 font-semibold text-sm">User UID</label>
+          <label className="admin-label-sm">User UID</label>
           <input
             type="text"
             value={profilePicUid}
             onChange={(e) => setProfilePicUid(e.target.value)}
             placeholder="Enter user UID"
-            className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+            className="admin-control-sm"
             required
           />
-          <p className="text-xs text-gray-500">
+          <p className="admin-help-text">
             Enter the UID of the user whose profile picture you want to update
           </p>
         </div>
 
         <div className="space-y-2">
-          <label className="block text-gray-700 font-semibold text-sm">Upload Image</label>
+          <label className="admin-label-sm">Upload Image</label>
           <input
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+            className="admin-control-sm"
             disabled={uploading}
           />
-          <p className="text-xs text-gray-500">
+          <p className="admin-help-text">
             Select an image file to crop and upload as profile picture
           </p>
         </div>
@@ -105,13 +105,13 @@ export default function ProfilePictureUploader() {
         )}
 
         {success && (
-          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
+          <div className="admin-alert-success">
             {success}
           </div>
         )}
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+          <div className="admin-alert-error">
             {error}
           </div>
         )}
