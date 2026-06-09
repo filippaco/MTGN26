@@ -11,6 +11,7 @@ const Bandaren = () => {
   const [blandare, setBlandare] = useState<string[][]>([]);
   const [blandareDetails, setBlandareDetails] = useState<{ name: string; displayName?: string; images: string[]; timeCreated: string }[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -23,6 +24,7 @@ const Bandaren = () => {
     const fetchBlandare = async () => {
       if (!user) return;
       const token = await user.getIdToken();
+      setLoading(true);
       try {
         const response = await fetch('/api/getBlandare', {
           method: 'GET',
@@ -32,6 +34,7 @@ const Bandaren = () => {
         });
         if (response.ok) {
           const data = await response.json();
+          setLoading(false);
           // Handle both old and new format
           if (data.allImages) {
             setBlandare(data.allImages);
@@ -52,6 +55,14 @@ const Bandaren = () => {
   }, [user]);
 
   if (!user) return <h1>Please login</h1>;
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-gradient-stars flex items-center justify-center">
+        <h1 className="text-white text-2xl">Laddar...</h1>
+      </main>
+    );
+  }
 
   if (blandare.length === 0) {
     return (
