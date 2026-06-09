@@ -25,6 +25,8 @@ export default function N0llanGrupper() {
   const [disable, setDisable] = useState<boolean>(false)
   const [score, setScore] = useState<number>(0);
   const [userType, setUserType] = useState<string>("all"); // State for user type filter
+  const [recentUsers, setRecentUsers] = useState<string[]>([]); // State to track recently shown users
+  const COOLDOWN_SIZE = 5; // Cooldown time in seconds
 
   const { user } = useAuth();
 
@@ -68,8 +70,14 @@ export default function N0llanGrupper() {
     });
     
     if (filtered.length > 0) {
-      const randomUser = filtered[Math.floor(Math.random() * filtered.length)];
+      const availableUsers = filtered.filter(
+        (user) => !recentUsers.includes(user.name)
+      );
+
+      const pool = availableUsers.length > 0 ? availableUsers : filtered; // If all users are in cooldown, use the full filtered list
+      const randomUser = pool[Math.floor(Math.random() * pool.length)];
       setCurrentUser(randomUser);
+      setRecentUsers((prev) => [...prev, randomUser.name].slice(-COOLDOWN_SIZE)); // Add to recent users and maintain cooldown size
 
       // Create options for the user to choose from
       const shuffledUsers = [...filtered].sort(() => 0.5 - Math.random());
