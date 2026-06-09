@@ -26,7 +26,7 @@ export default function N0llanGrupper() {
   const [score, setScore] = useState<number>(0);
   const [userType, setUserType] = useState<string>("all"); // State for user type filter
   const [recentUsers, setRecentUsers] = useState<string[]>([]); // State to track recently shown users
-  const COOLDOWN_SIZE = 5; // Cooldown time in seconds
+  const COOLDOWN_SIZE = 5; // Number of recent users to keep in cooldowns
 
   const { user } = useAuth();
 
