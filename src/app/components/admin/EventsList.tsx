@@ -220,24 +220,24 @@ export default function EventsList({
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
+    <div className="admin-card">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-semibold">Manage Events</h2>
         <button
           onClick={onRefresh}
           disabled={loading}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200 disabled:bg-gray-400"
+          className="admin-button-primary"
         >
           {loading ? 'Loading...' : 'Refresh'}
         </button>
       </div>
 
-      <div className="space-y-4 max-h-[32rem] overflow-y-auto">
+      <div className="admin-list-events">
         {events.length === 0 ? (
-          <p className="text-gray-500 text-center py-8">No events found</p>
+          <p className="admin-empty-state py-8">No events found</p>
         ) : (
           events.map((event) => (
-            <div key={event.id} className="border border-gray-200 rounded-lg p-4">
+            <div key={event.id} className="admin-list-item-lg">
               {editingEventId === event.id ? (
                 // Edit mode
                 <form onSubmit={handleUpdateEvent} className="space-y-4">
@@ -254,45 +254,45 @@ export default function EventsList({
                   
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-gray-700 font-semibold text-sm">Event Name</label>
+                      <label className="admin-label-sm">Event Name</label>
                       <input
                         type="text"
                         value={editEventName}
                         onChange={(e) => setEditEventName(e.target.value)}
-                        className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+                        className="admin-control-sm"
                         required
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-gray-700 font-semibold text-sm">Google Drive Link</label>
+                      <label className="admin-label-sm">Google Drive Link</label>
                       <input
                         type="url"
                         value={editEventDriveUrl}
                         onChange={(e) => setEditEventDriveUrl(e.target.value)}
-                        className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+                        className="admin-control-sm"
                         required
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-gray-700 font-semibold text-sm">Event Date</label>
+                      <label className="admin-label-sm">Event Date</label>
                       <input
                         type="date"
                         value={editEventDate}
                         onChange={(e) => setEditEventDate(e.target.value)}
-                        className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+                        className="admin-control-sm"
                         required
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-gray-700 font-semibold text-sm">Event Time</label>
+                      <label className="admin-label-sm">Event Time</label>
                       <div className="grid grid-cols-2 gap-2">
                         <select
                           value={editEventHour}
                           onChange={(e) => setEditEventHour(e.target.value)}
-                          className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+                          className="admin-control-sm"
                           required
                         >
                           <option value="">Hour</option>
@@ -305,7 +305,7 @@ export default function EventsList({
                         <select
                           value={editEventMinute}
                           onChange={(e) => setEditEventMinute(e.target.value)}
-                          className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+                          className="admin-control-sm"
                           required
                         >
                           <option value="">Minute</option>
@@ -319,14 +319,14 @@ export default function EventsList({
                     </div>
                     
                     <div>
-                      <label className="block text-gray-700 font-semibold text-sm">Thumbnail Image</label>
+                      <label className="admin-label-sm">Thumbnail Image</label>
                       <input
                         type="file"
                         onChange={handleThumbnailChange}
                         accept="image/*"
-                        className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+                        className="admin-control-sm"
                       />
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="admin-help-text mt-1">
                         Leave empty to keep current thumbnail
                       </p>
                     </div>
@@ -336,14 +336,14 @@ export default function EventsList({
                     <button
                       type="submit"
                       disabled={updating}
-                      className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200 text-sm disabled:bg-gray-400"
+                      className="admin-button-primary text-sm"
                     >
                       {updating ? 'Updating...' : 'Update Event'}
                     </button>
                     <button
                       type="button"
                       onClick={handleCancelEdit}
-                      className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200 text-sm"
+                      className="admin-button-muted-sm"
                     >
                       Cancel
                     </button>
@@ -379,13 +379,13 @@ export default function EventsList({
                   <div className="flex flex-col space-y-2">
                     <button
                       onClick={() => handleStartEdit(event)}
-                      className="bg-blue-500 text-white text-sm px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
+                      className="admin-button-primary-sm"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => onDelete(event.id, event.name)}
-                      className="bg-red-500 text-white text-sm px-4 py-2 rounded hover:bg-red-600 transition duration-200"
+                      className="admin-button-danger-sm"
                     >
                       Delete
                     </button>

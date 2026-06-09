@@ -1,4 +1,5 @@
 'use client'
+import type { CSSProperties } from 'react';
 import { FormEvent, useEffect, useState } from 'react';
 import useAuth from "../components/useAuth";
 import { doc, getDoc, setDoc, collection, getDocs, DocumentData } from 'firebase/firestore';
@@ -82,8 +83,8 @@ export default function N0llegrupper() {
             
                 <button
                     onClick={() => toggleGroupBool(index)}
-                    className="relative bg-cover bg-center bg-almost-black shadow-pink-glow text-white font-medium text-xl mt-4 rounded-lg w-full py-4 whitespace-nowrap hover:bg-gray-900 shadow-pink-glow"
-                    style={{ backgroundImage: `url('/n0llegrupper-images/${group}-Cover.webp')` }}
+                    className="n0llan-group-trigger"
+                    style={{ "--group-cover-image": `url('/n0llegrupper-images/${group}-Cover.webp')` } as CSSProperties}
                     >
                     &nbsp;
 
@@ -103,7 +104,7 @@ export default function N0llegrupper() {
                     <div className={`transition-all delay-150 duration-200 overflow-hidden w-full ${groupBool[index] ? "max-h-[200rem]" : "max-h-0"}`}> {/* KANSKE MÅSTE ÄNDRA VÄRDE PÅ max-h- beroende på hur många som kommer visas upp i animationen */}
                         <div className="grid grid-cols-3 gap-4 lg:grid-cols-4 2xl:grid-cols-5 mt-1">
                             {groupUsers.map((user, index) => (
-                                <button onClick={() => showUserProfile(user.profilePic, user.name, user.funFact)} key={index} className={`bg-white p-2 rounded-lg drop-shadow shadow-pink-glow hover:bg-slate-200`}>
+                                <button onClick={() => showUserProfile(user.profilePic, user.name, user.funFact)} key={index} className="n0llan-member-card">
                                     <img 
                                         src={user.profilePic} 
                                         alt={`User ${index + 1}`} 
@@ -120,7 +121,7 @@ export default function N0llegrupper() {
                         </div>
                         <div className="grid grid-cols-2 gap-4 mb-3 sm:mx-20 2xl:mx-64 mt-4 ">
                             {kphUsers.map((user, index) => (
-                                <button onClick={() => showUserProfile(user.profilePic, user.name, user.funFact)} key={index} className="bg-white p-2 rounded-lg drop-shadow shadow-pink-glow hover:bg-slate-200">
+                                <button onClick={() => showUserProfile(user.profilePic, user.name, user.funFact)} key={index} className="n0llan-member-card">
                                 <img 
                                     src={user.profilePic} 
                                     alt={user.name} 
@@ -136,7 +137,7 @@ export default function N0llegrupper() {
                         </div>
                         <div className="grid grid-cols-3 gap-4 2xl:mx-48">
                             {phosUsers.map((user, index) => (
-                                <button onClick={() => showUserProfile(user.profilePic, user.name, user.funFact)} key={index} className="bg-white p-2 rounded-lg drop-shadow shadow-pink-glow hover:bg-slate-200">
+                                <button onClick={() => showUserProfile(user.profilePic, user.name, user.funFact)} key={index} className="n0llan-member-card">
                                     <img 
                                         src={user.profilePic} 
                                         alt={`User ${index + 1}`} 

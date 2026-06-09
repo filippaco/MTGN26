@@ -73,19 +73,16 @@ export default function Flipbook({ images, aspectRatio = 1.414 }: { images: stri
           {images.map((imgUrl, idx) => (
             <div
               key={idx}
-              className="demoPage"
+              className="demoPage flipbook-page"
               style={{
                 width: pageWidth,
                 height: pageHeight,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
               }}
             >
               <img
                 src={imgUrl}
                 alt={`Page ${idx + 1}`}
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                className="flipbook-image"
                 loading="eager"
               />
             </div>
@@ -96,4 +93,3 @@ export default function Flipbook({ images, aspectRatio = 1.414 }: { images: stri
     </div>
   );
 }
-

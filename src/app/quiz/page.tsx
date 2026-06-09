@@ -1,4 +1,5 @@
 "use client";
+import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../components/useAuth";
 
@@ -200,7 +201,12 @@ export default function N0llanGrupper() {
         )}
       </div>
       {message && (
-        <div className="mt-4 text-lg font-bold" style={{WebkitTextFillColor : color}} >{message}</div>
+        <div
+          className="quiz-message mt-4 text-lg font-bold"
+          style={{ "--quiz-message-color": color } as CSSProperties}
+        >
+          {message}
+        </div>
       )}
       <div className="mt-4 text-lg font-bold text-amber-50">Streak: {score}</div>
     </main>

@@ -200,8 +200,7 @@ export default function EventGallery() {
                                       alt="Photos icon"
                                       width={28}
                                       height={28}
-                                      className="w-7 h-7 md:w-9 md:h-9 lg:w-11 lg:h-11"
-                                      style={{filter: 'drop-shadow(0 0 8px rgba(242, 136, 198, 0.8)) drop-shadow(0 0 15px rgba(242, 136, 198, 0.4))'}}
+                                      className="event-photo-icon-glow w-7 h-7 md:w-9 md:h-9 lg:w-11 lg:h-11"
                                     />
                                   </div>
                                 </div>

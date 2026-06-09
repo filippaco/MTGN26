@@ -176,41 +176,41 @@ export default function UploadBlandareForm({ onBlandareUploaded }: UploadBlandar
   };
 
   return (
-    <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6 space-y-6">
+    <div className="admin-card space-y-6">
       <form onSubmit={handleSubmit}>
-        <h1 className="mb-3 text-2xl font-semibold text-center">Upload New Bländare</h1>
+        <h1 className="admin-title">Upload New Bländare</h1>
         
         <div className="space-y-2">
-          <label className="block text-gray-700 font-semibold text-sm">Bländare Name</label>
+          <label className="admin-label-sm">Bländare Name</label>
           <input
             type="text"
             value={customName}
             onChange={(e) => setCustomName(e.target.value)}
             placeholder="ex. Bländaren 1, Bländaren 2, Slutaren etc"
-            className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+            className="admin-control-sm"
             required
           />
-          <p className="text-xs text-gray-500">
+          <p className="admin-help-text">
             This name will appear on the buttons in the bländare page
           </p>
         </div>
 
         <div className="space-y-2">
-          <label className="block text-gray-700 font-semibold text-sm">Upload PDF</label>
+          <label className="admin-label-sm">Upload PDF</label>
           <input
             type="file"
             accept="application/pdf"
-            className="border border-gray-300 rounded-lg p-2 w-full text-sm"
+            className="admin-control-sm"
             ref={fileInputRef}
             required
           />
-          <p className="text-xs text-gray-500">
+          <p className="admin-help-text">
             PDF will be converted to images and uploaded automatically
           </p>
         </div>
         <button
           type="submit"
-          className="mt-3 w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-200 text-sm"
+          className="admin-button-success-sm mt-3 w-full"
           disabled={uploading}
         >
           {uploading ? 'Converting and Uploading...' : 'Upload Bländare'}
