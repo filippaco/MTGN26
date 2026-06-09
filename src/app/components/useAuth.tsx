@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
         setUser(currentUser);
       } else {
         setUser(false);
-        router.push('/'); // Redirect to login page if not authenticated
+        router.push('/valkommen'); // Redirect to login page if not authenticated
       }
     });
 
