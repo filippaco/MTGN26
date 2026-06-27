@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const AUDIO_SRC = "/drake.mp3";
 const HIT_RADIUS = 10;
-const DEBUG_EASTER_EGG = process.env.NODE_ENV === "development"; // Enable debug mode in development
+const DEBUG_EASTER_EGG = true; // Enable debug mode in development
 
 export default function DrakeEasterEgg() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
