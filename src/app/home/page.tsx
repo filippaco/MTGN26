@@ -14,6 +14,8 @@ import AnslagCard from "../components/AnslagCard";
 import { NextRequest, NextResponse } from "next/server";
 import EmojiModal from "../components/EmojiModal";
 import { getOrFetchUsers } from "../lib/sessionStorage";
+import { Router } from "next/router";
+import { useRouter, usePathname } from 'next/navigation';
 
 const gasqueImage = "/gasqueImg.png";
 const homeGradient = "/homeGradient.jpg"
@@ -95,12 +97,18 @@ function formatDateTime(startTime: string, endTime: string): string {
 
 export default function Home() {
     // check if user is logged in
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
+    const router = useRouter();
 
     const [posts, setPosts] = useState<Post[]>([]);
     const [events, setEvents] = useState<any[]>([]);
     
-
+    useEffect(() => {
+        if (!loading && !user){
+            router.replace('/');
+        }
+    }, [user, loading]);
+    
     useEffect(() => {
         
         const fetchPostsData = async () => {
