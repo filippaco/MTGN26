@@ -5,9 +5,10 @@ import { useRouter } from 'next/navigation';
 
 interface LogoutButtonProps {
   onClose?: () => void; // prop for a function to call on logout, used to close dropdown on click
+  className?: string;
 }
 
-const LogoutButton: React.FC<LogoutButtonProps> = ({ onClose }) => {
+const LogoutButton: React.FC<LogoutButtonProps> = ({ onClose, className }) => {
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -23,7 +24,11 @@ const LogoutButton: React.FC<LogoutButtonProps> = ({ onClose }) => {
   };
 
   return (
-    <button className="text-inherit font-medium transition ease-in-out" onClick={handleLogout}>Logga ut</button>
+    <button className={className ?? "block px-2 py-2 text-sm hover:text-amber-100 hover:bg-amber-950/10 rounded text-left w-full"} 
+    onClick={handleLogout}
+    >
+    Logga ut
+    </button>
   );
 };
 
