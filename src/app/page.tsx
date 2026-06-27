@@ -19,12 +19,9 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   const { user } = useAuth();
-  
-  useEffect(() => {
   if (user) {
-    router.replace("/home");
-    }
-  }, [user]);
+    router.push("/home");
+  }
   /*
   If user is already logged in, redirect to home page. This should ideally be done in middleware.ts but I can't get it to work for some reason.
   */
