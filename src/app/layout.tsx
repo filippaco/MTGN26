@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import { AuthProvider } from "./components/useAuth";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react"
+import DrakeEasterEgg from "./components/DrakeEasterEgg"; // Import the DrakeEasterEgg component
 
 const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik({ subsets: ["latin"] });
@@ -28,6 +29,7 @@ export default function RootLayout({
           <div className="pt-16"> {/* Push everything else down so they dont render behind navbar unintentionally */}
             {children}
           </div>
+          <DrakeEasterEgg /> {/* Add the DrakeEasterEgg component */}
           <Footer/>
         </body>
       </html>
