@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "engines": {
-    "node": "20"
+    "node": "24.x"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
