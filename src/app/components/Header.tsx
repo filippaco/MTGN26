@@ -29,7 +29,7 @@ const NAV_ITEMS = [
     items: [
       { href: "/phosare", label: "Phösare", target: "_self" },
       { href: "/n0llegrupper", label: "nØllegrupper", target: "_self" },
-      { href: "/namnquiz", label: "Namn-quiz", target: "_self" }
+      { href: "/quiz", label: "Namn-quiz", target: "_self" }
     ],
   },
 
