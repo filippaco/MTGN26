@@ -52,7 +52,7 @@ const NAV_ITEMS = [
       { href: "https://forms.gle/yWqqumMhmq96T6Sm7", label: "På-Hjärtat-Lådan", target: "_blank" },
     ],
   },
-] as const;
+];
 
 export default function Header() {
   const { user } = useAuth();
@@ -111,14 +111,14 @@ export default function Header() {
           height={32}
           className="mr-2 ml-4"
         />
-        HEM
+        MTGN26
       </Link>
 
       {isValkommenPage && (
         <Link
-        href="/home"
+        href="/"
         className="text-amber-100 hover:text-amber-50 font-medium transition ease-in-out mr-4">
-          Till hemsidan →
+          Logga in →
         </Link>
       )}
 
@@ -135,17 +135,7 @@ export default function Header() {
           <div className="absolute top-full right-0 w-full bg-darker-purple shadow-md z-10 md:hidden">
             <div className={`transition-all duration-200 overflow-hidden w-full ${isMenuOpen ? "max-h-[40rem]" : "max-h-0"}`}>
               <div className="flex flex-col p-4 gap-4">
-                {NAV_ITEMS.map((item) =>
-                  item.type === "link" ? (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="text-center hover:text-amber-100 font-medium border-b border-amber-100/10 pb-4"
-                      onClick={closeMenu}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
+                {NAV_ITEMS.map((item) => (
                     <div key={item.label} className="border-b border-amber-100/10 pb-4">
                       <div className="text-sm uppercase tracking-[0.2em] mb-2 text-amber-200">
                         {item.label}
@@ -175,16 +165,7 @@ export default function Header() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            {NAV_ITEMS.map((item) =>
-              item.type === "link" ? (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-amber-100 hover:text-amber-50 font-medium transition ease-in-out"
-                >
-                  {item.label}
-                </Link>
-              ) : (
+            {NAV_ITEMS.map((item) => (
                 <div key={item.label} className="relative">
                   <button
                     type="button"

@@ -176,7 +176,7 @@ export default function PhosarGrupper() {
                             className="w-full aspect-square rounded-lg"
                             onError={(e) => {
                                 const target = e.target as HTMLImageElement;
-                                if (target.src !== '/denied.gif') { // Don't fallfback if it's already the denied gif
+                                if (target.src !== '/denied.gif') { // Don't fallback if it's already the denied gif
                                     target.src = '/defaultprofile.svg';
                                 }
                             }}
