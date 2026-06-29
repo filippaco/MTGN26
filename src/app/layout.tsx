@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MTGN25",
-  description: "Mottagningen 2025",
+  title: "MTGN26",
+  description: "Mottagningen 2026",
 };
 
 export default function RootLayout({
